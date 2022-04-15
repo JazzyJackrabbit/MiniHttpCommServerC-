@@ -128,20 +128,6 @@ namespace HttpBPServer
         }
 
 
-        public static string StreamToString(Stream stream)
-        {
-            stream.Position = 0;
-            using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-            {
-                return reader.ReadToEnd();
-            }
-        }
-
-        public static Stream StringToStream(string src)
-        {
-            byte[] byteArray = Encoding.UTF8.GetBytes(src);
-            return new MemoryStream(byteArray);
-        }
         public static byte[] ReadFully(Stream input)
         {
             byte[] buffer = new byte[16 * 1024];
